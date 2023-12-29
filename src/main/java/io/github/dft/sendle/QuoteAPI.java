@@ -10,7 +10,7 @@ import java.net.URI;
 import java.net.http.HttpRequest;
 import java.util.HashMap;
 
-import static io.github.dft.sendle.constantcode.ConstantCodes.BASE_ENDPOINT;
+import static io.github.dft.sendle.constantcode.ConstantCodes.QUOTE_ENDPOINT;
 
 public class QuoteAPI extends SendleSDK {
 
@@ -22,7 +22,7 @@ public class QuoteAPI extends SendleSDK {
     }
 
     public QuoteResponseList getQuote(HashMap<String, String> params) {
-        URI uri = addParameters(URI.create(BASE_ENDPOINT + "quote"), params);
+        URI uri = addParameters(URI.create(QUOTE_ENDPOINT), params);
         HttpRequest get = get(uri);
 
         Object response = getRequestWrapped(get, Object.class);
