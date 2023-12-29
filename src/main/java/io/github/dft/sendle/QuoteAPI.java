@@ -14,11 +14,8 @@ import static io.github.dft.sendle.constantcode.ConstantCodes.QUOTE_ENDPOINT;
 
 public class QuoteAPI extends SendleSDK {
 
-    private final ObjectMapper objectMapper;
-
     public QuoteAPI(SendleCredentials sendleCredentials) {
         super(sendleCredentials);
-        objectMapper = new ObjectMapper();
     }
 
     public QuoteResponseList getQuote(HashMap<String, String> params) {

@@ -23,7 +23,7 @@ public class SendleSDK {
 
     protected HttpClient client;
     protected SendleCredentials sendleCredentials;
-    private final ObjectMapper objectMapper;
+    protected final ObjectMapper objectMapper;
 
     public SendleSDK(SendleCredentials sendleCredentials) {
         client = HttpClient.newHttpClient();
