@@ -3,7 +3,7 @@ package io.github.dft.sendle.constantcode;
 public interface ConstantCodes {
 
     String AUTHORIZATION = "Authorization";
-    String BASIC = "Basic";
+    String BASIC = "Basic ";
     String ACCEPT = "Accept";
     String CONTENT_TYPE = "Content-Type";
     String BASE_ENDPOINT = "https://api.sendle.com/api/";
