@@ -5,9 +5,11 @@ import io.github.dft.sendle.model.SendleCredentials;
 import lombok.SneakyThrows;
 
 import java.net.URI;
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
@@ -66,11 +68,15 @@ public class SendleSDK {
             builder.append(query);
 
         for (Map.Entry<String, String> entry : params.entrySet()) {
-            String keyValueParam = entry.getKey() + "=" + entry.getValue();
+
             if (!builder.toString().isEmpty())
                 builder.append("&");
-            builder.append(keyValueParam);
+
+            builder.append(URLEncoder.encode(entry.getKey(), StandardCharsets.UTF_8));
+            builder.append("=");
+            builder.append(URLEncoder.encode(entry.getValue(), StandardCharsets.UTF_8));
         }
+
         return URI.create(uri.getScheme() + "://" + uri.getAuthority() + uri.getPath() + "?" + builder);
     }
 }
